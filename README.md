@@ -4,7 +4,7 @@ Master en Data Sciencist - Institución: Pontia.tech
 
 El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
 
-El proyecto cuenta con 7 archivos, a continuación se describen los archivos con su contenido:
+El proyecto cuenta con 7 archivos json, a continuación se describen los archivos con su contenido:
 
 1) alarma_fraude.json : archivo donde el sistema almacena un nuevo registro cuando detecta una posible transacción fraudulenta.
 
