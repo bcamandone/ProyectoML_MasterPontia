@@ -1,8 +1,14 @@
 # ProyectoML_MasterPontia
 
-Master en Data Sciencist - Institución: Pontia.tech
+# Master en Data Sciencist - Institución: Pontia.tech
 
 El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
+
+Problematica: 
+
+La empresa Pontia Bank S.L. necesita desarrollar un sistema de detección de transacciones fraudulentas. Esta compañía, tramita miles de transacciones diarias de todos sus clientes entre las cuales se quiere diferenciar entre las que son fraudulentas de las que no lo son. Para ello, se han extraído las transacciones realizadas en los últimos 30 días (más de 6 millones) e identificado (manualmente) aquellas que son fraudulentas. Sin embargo, resulta muy costoso e ineficiente necesitar una revisión manual de la transacción para su validación, por lo que se quiere automatizar esta tarea. 
+La empresa carece de un sistema adecuado para almacenar y gestionar sus datos de las transacciones, por lo que no solo necesita ser capaz de identificar el fraude, sino que es necesario llevar a cabo una transformación digital completa alrededor de estos datos: empezando por su almacenamiento, pasando por su procesamiento y finalizando con la generación de resultados y cálculo de KPIs útiles para el negocio. 
+
 
 El proyecto cuenta con 7 archivos json, a continuación se describen los archivos con su contenido:
 
