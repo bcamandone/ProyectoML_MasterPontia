@@ -1,0 +1,7 @@
+--1)Calcular la media diaria de la cuantía de las transacciones
+SELECT round(CAST(AVG(c.cuantia) as numeric), 2) as media_diaria_cuantia,  CAST(t.fecha_final AS date)
+FROM public."Cuantia" c JOIN public."Tiempo" t
+ON (c."t_id" = t."t_id")
+GROUP BY CAST(t.fecha_final AS date)
+
+--
