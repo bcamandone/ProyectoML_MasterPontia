@@ -1,25 +1,40 @@
 --1)Calcular la media diaria de la cuantía de las transacciones
+
 SELECT round(CAST(AVG(c.cuantia) as numeric), 2) as media_diaria_cuantia,  CAST(t.fecha_final AS date)
 FROM public."Cuantia" c JOIN public."Tiempo" t
 ON (c."t_id" = t."t_id")
 GROUP BY CAST(t.fecha_final AS date)
 
 --2)Calcular la cuantía total de las transacciones
+
 SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria,  CAST(t.fecha_final AS date)
 FROM public."Cuantia" c JOIN public."Tiempo" t
 ON (c."t_id" = t."t_id")
 GROUP BY CAST(t.fecha_final AS date)
 
 --3)¿Qué días del mes se han producido más transacciones y cuántas?
+
 WITH tmp as(
-SELECT CAST(t.fecha_final AS date),count(c.cuantia) as cuenta_transacciones
-FROM public."Cuantia" c JOIN public."Tiempo" t
-ON (c."t_id" = t."t_id")
-GROUP BY CAST(t.fecha_final AS date)
+SELECT CAST(fecha_final AS date),count(t_id) as cuenta_transacciones
+FROM "Tiempo" 
+GROUP BY CAST(fecha_final AS date)
 )
 SELECT fecha_final, cuenta_transacciones,
 RANK () OVER(ORDER BY cuenta_transacciones desc) as rank_transacciones
 FROM tmp
+
+--3)¿A qué horas del día se producen más transacciones y cuántas?
+
+WITH tmp as(
+SELECT EXTRACT(HOUR FROM fecha_final) AS hora , count(t_id) as cuenta_transacciones
+FROM public."Tiempo" 
+GROUP BY EXTRACT(HOUR FROM fecha_final)
+)
+SELECT hora, cuenta_transacciones,
+RANK () OVER(ORDER BY cuenta_transacciones desc) as rank_transacciones
+FROM tmp
+
+
 
 
 
