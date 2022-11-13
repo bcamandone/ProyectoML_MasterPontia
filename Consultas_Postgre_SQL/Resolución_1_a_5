@@ -10,5 +10,18 @@ FROM public."Cuantia" c JOIN public."Tiempo" t
 ON (c."t_id" = t."t_id")
 GROUP BY CAST(t.fecha_final AS date)
 
+--3)¿Qué días del mes se han producido más transacciones y cuántas?
+WITH tmp as(
+SELECT CAST(t.fecha_final AS date),count(c.cuantia) as cuenta_transacciones
+FROM public."Cuantia" c JOIN public."Tiempo" t
+ON (c."t_id" = t."t_id")
+GROUP BY CAST(t.fecha_final AS date)
+)
+SELECT fecha_final, cuenta_transacciones,
+RANK () OVER(ORDER BY cuenta_transacciones desc) as rank_transacciones
+FROM tmp
+
+
+
 
 
