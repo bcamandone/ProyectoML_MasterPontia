@@ -1,15 +1,23 @@
 # Calcular los siguientes KPIs y contestar a las siguientes preguntas:
 
 1) Calcular la media diaria de la cuantía de las transacciones.
+
 2) Calcular la cuantía total de las transacciones.
+
 3) ¿Qué días del mes se han producido más transacciones y cuántas?
+
 4) ¿A qué horas del día se producen más transacciones y cuántas?
+
 5) ¿Cuáles son los 5 clientes que han transferido más dinero y cuánto?
+
 6) ¿Cuáles son los 5 clientes que han transferido menos dinero y cuánto?
+
 7) ¿Cuáles son los 10 clientes que han recibido más dinero y cuánto?
+
 8) ¿Cuáles son los 3 clientes con mejor balance a lo largo del mes (aquellos que al restarle
 al dinero recibido el dinero enviado se quedan con un mejor resultado) y cuál ha sido
 su balance?
+
 9)¿Cuáles son los 3 clientes con peor balance a lo largo de todo el mes y cuál ha sido?
 
 10)¿Cuántas transacciones fraudulentas se han producido?
