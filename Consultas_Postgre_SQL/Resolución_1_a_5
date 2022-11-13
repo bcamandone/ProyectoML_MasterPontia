@@ -4,4 +4,11 @@ FROM public."Cuantia" c JOIN public."Tiempo" t
 ON (c."t_id" = t."t_id")
 GROUP BY CAST(t.fecha_final AS date)
 
---
+--2)Calcular la cuantía total de las transacciones
+SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria,  CAST(t.fecha_final AS date)
+FROM public."Cuantia" c JOIN public."Tiempo" t
+ON (c."t_id" = t."t_id")
+GROUP BY CAST(t.fecha_final AS date)
+
+
+
