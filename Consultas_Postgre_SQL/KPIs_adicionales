@@ -1,5 +1,13 @@
 --Cantidad de transacciones por día 
+
 SELECT CAST(t.fecha_final AS date),count(c.cuantia) as cuenta_transacciones
 FROM public."Cuantia" c JOIN public."Tiempo" t
 ON (c."t_id" = t."t_id")
 GROUP BY CAST(t.fecha_final AS date)
+
+--Transacciones con cuantia igual a cero 
+
+SELECT t_id, cuantia
+FROM public."Cuantia"
+where cuantia = 0
+
