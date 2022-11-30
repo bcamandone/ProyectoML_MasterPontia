@@ -1,8 +1,8 @@
 --6) ¿Cuáles son los 5 clientes que han transferido menos dinero y cuánto?
-SELECT id_cliente_origen, sum(cuantia) as total_transferido
-FROM public."Clientes" c JOIN public."Cuantia" u
-ON(c."t_id" = u."t_id")
-where cuantia <> 0
+SELECT b.id_cliente_origen, sum(b.cuantia) as total_transferido
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE d.tipo = 'TRANSFER' and b.cuantia <> 0
 GROUP BY id_cliente_origen
 ORDER BY total_transferido asc
 limit 5 
