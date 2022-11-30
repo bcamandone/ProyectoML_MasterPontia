@@ -7,28 +7,28 @@ GROUP BY t.fecha
 
 --2)Calcular la cuantía total de las transacciones
 
-SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria,  CAST(t.fecha_final AS date)
-FROM public."Cuantia" c JOIN public."Tiempo" t
+SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria,  t.fecha
+FROM public."Balance" c JOIN public."Detalle_transacciones" t
 ON (c."t_id" = t."t_id")
-GROUP BY CAST(t.fecha_final AS date)
+GROUP BY t.fecha
 
 --3)¿Qué días del mes se han producido más transacciones y cuántas?
 
 WITH tmp as(
-SELECT CAST(fecha_final AS date),count(t_id) as cuenta_transacciones
-FROM "Tiempo" 
-GROUP BY CAST(fecha_final AS date)
+SELECT fecha, count(t_id) as cuenta_transacciones
+FROM "Detalle_transacciones" 
+GROUP BY fecha
 )
-SELECT fecha_final, cuenta_transacciones,
+SELECT fecha, cuenta_transacciones,
 RANK () OVER(ORDER BY cuenta_transacciones desc) as rank_transacciones
 FROM tmp
 
 --4)¿A qué horas del día se producen más transacciones y cuántas?
 
 WITH tmp as(
-SELECT EXTRACT(HOUR FROM fecha_final) AS hora , count(t_id) as cuenta_transacciones
-FROM public."Tiempo" 
-GROUP BY EXTRACT(HOUR FROM fecha_final)
+SELECT hora , count(t_id) as cuenta_transacciones
+FROM public."Detalle_transacciones" 
+GROUP BY hora
 )
 SELECT hora, cuenta_transacciones,
 RANK () OVER(ORDER BY cuenta_transacciones desc) as rank_transacciones
@@ -36,9 +36,10 @@ FROM tmp
 
 --5)¿Cuáles son los 5 clientes que han transferido más dinero y cuánto?
 
-SELECT id_cliente_origen, sum(cuantia) as total_transferido
-FROM public."Clientes" c JOIN public."Cuantia" u
-ON(c."t_id" = u."t_id")
+SELECT b.id_cliente_origen, sum(b.cuantia) as total_transferido
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE d.tipo = 'TRANSFER'
 GROUP BY id_cliente_origen
 ORDER BY total_transferido desc 
 limit 5 
