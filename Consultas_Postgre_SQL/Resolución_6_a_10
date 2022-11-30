@@ -16,4 +16,18 @@ GROUP BY id_cliente_destino
 ORDER BY total_transferido desc
 limit 10
 
+--8)¿Cuáles son los 3 clientes con mejor balance a lo largo del mes (aquellos que al restarle al dinero recibido el dinero enviado se quedan con un mejor resultado) y cuál ha sido su balance?
 
+
+
+
+
+
+--9)¿Cuáles son los 3 clientes con peor balance a lo largo de todo el mes y cuál ha sido?
+
+
+
+
+
+
+--10)¿Cuántas transacciones fraudulentas se han producido?
