@@ -7,6 +7,7 @@ where mensaje_alarma = 'True'
 
 
 --12)¿Cuántas transacciones se producen por cada tipo de operación?
+
 SELECT count(t_id) as cantidad_transacciones, tipo
 FROM public."Detalle_transacciones" 
 group by tipo
