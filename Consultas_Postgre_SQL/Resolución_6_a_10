@@ -1,4 +1,5 @@
 --6) ¿Cuáles son los 5 clientes que han transferido menos dinero y cuánto?
+
 SELECT b.id_cliente_origen, sum(b.cuantia) as total_transferido
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
@@ -8,6 +9,7 @@ ORDER BY total_transferido asc
 limit 5 
 
 --7)¿Cuáles son los 10 clientes que han recibido más dinero y cuánto?
+
 SELECT b.id_cliente_destino, round(CAST(SUM(b.cuantia) as numeric), 2) as total_transferido
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
@@ -31,3 +33,12 @@ limit 10
 
 
 --10)¿Cuántas transacciones fraudulentas se han producido?
+
+SELECT count(t_id) as cantidad_fraudes
+FROM public."Fraude" 
+where es_fraude = 'True'
+
+
+
+
+
