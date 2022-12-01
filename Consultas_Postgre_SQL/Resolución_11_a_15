@@ -1,1 +1,30 @@
+--11)Diferenciando entre si las transacciones que han producido una alarma de transacción fraudulenta en los sistemas,
+--¿cuántas han sido realmente fraudulentas y cuántas no?
 
+SELECT *
+FROM public."Fraude" 
+where mensaje_alarma = 'True' 
+
+
+--12)¿Cuántas transacciones se producen por cada tipo de operación?
+SELECT count(t_id) as cantidad_transacciones, tipo
+FROM public."Detalle_transacciones" 
+group by tipo
+order by  cantidad_transacciones desc
+
+
+--13)¿Cuál es la cuantía total de cada tipo de transacción que realizan los 5 clientes que han transferido más dinero?
+
+
+
+
+
+--14)Para cada transacción, calcular el porcentaje de incremento del balance del destinatario.
+
+
+
+
+
+--15)Suponiendo que si no se dispone de información del balance anterior y posterior de un cliente (ya sea emisor o receptor de la operación) 
+--no es cliente de Pontia Bank S.L., ¿cuánto dinero en total ha recibido Pontia Bank S.L. (desde destinatarios externos) y cuánto ha emitido
+--(a destinatarios externos)? ¿Cuál es la cuantía media y total de las operaciones realizadas entre dos clientes de Pontia Bank S.L.?
