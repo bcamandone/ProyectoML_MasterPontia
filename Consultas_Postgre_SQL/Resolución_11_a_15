@@ -14,7 +14,7 @@ group by tipo
 order by  cantidad_transacciones desc
 
 
---13)¿Cuál es la cuantía total de cada tipo de transacción que realizan los 5 clientes que han transferido más dinero?
+--13)¿Cuál es la cuantía total de cada tipo de transacción que realizan los 5 clientes que han enviado más dinero?
 
 
 
