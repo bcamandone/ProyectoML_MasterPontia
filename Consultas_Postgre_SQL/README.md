@@ -28,7 +28,7 @@
  12)¿Cuántas transacciones se producen por cada tipo de operación?
 
  13)¿Cuál es la cuantía total de cada tipo de transacción que realizan los 5 clientes que han
-    transferido más dinero?
+    enviado más dinero?
 
  14)Para cada transacción, calcular el porcentaje de incremento del balance del destinatario.
 
