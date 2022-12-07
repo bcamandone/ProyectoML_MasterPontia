@@ -32,14 +32,17 @@ WHERE total_cuantia > 5000
 SELECT COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
+WHERE d.tipo = 'TRANSFER'
 GROUP BY hora, id_cliente_origen
 HAVING COUNT(b.t_id)>3
+
 
 --Solución 2 
 WITH tmp as(
 SELECT COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
+WHERE d.tipo = 'TRANSFER'
 GROUP BY hora, id_cliente_origen
 )
 SELECT total_transferencias, hora, id_cliente_origen
