@@ -1,0 +1,18 @@
+--Identificación de datos erroneos
+
+--El límite de la retirada en efectivo es de 2000 € al día
+
+WITH tmp as(
+SELECT SUM(b.cuantia) as total_cuantia, d.fecha, b.id_cliente_origen
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE d.tipo = 'CASH_OUT'
+GROUP BY fecha, id_cliente_origen
+)
+SELECT total_cuantia, fecha, id_cliente_origen
+FROM tmp
+WHERE total_cuantia > 2000 
+
+--El límite de pago con tarjeta de débito al mes es de 5000 €
+
+
