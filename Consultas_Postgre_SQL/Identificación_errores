@@ -15,4 +15,46 @@ WHERE total_cuantia > 2000
 
 --El límite de pago con tarjeta de débito al mes es de 5000 €
 
+WITH tmp as(
+SELECT SUM(b.cuantia) as total_cuantia, EXTRACT(MONTH FROM d.fecha) AS mes, b.id_cliente_origen
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE d.tipo = 'DEBIT'
+GROUP BY mes, id_cliente_origen
+)
+SELECT total_cuantia, mes, id_cliente_origen
+FROM tmp
+WHERE total_cuantia > 5000 
+
+--No se pueden producir tres transferencias en una misma hora para un mismo cliente 
+
+--Solución 1
+SELECT COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+GROUP BY hora, id_cliente_origen
+HAVING COUNT(b.t_id)>3
+
+--Solución 2 
+WITH tmp as(
+SELECT COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+GROUP BY hora, id_cliente_origen
+)
+SELECT total_transferencias, hora, id_cliente_origen
+FROM tmp
+WHERE total_transferencias > 3
+
+--No se pueden producir varias transferencias que juntas sumen más de 3000€ en una misma hora, para un mismo cliente. 
+
+WITH tmp as(
+SELECT SUM(b.cuantia) as total_cuantia,COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+GROUP BY hora, id_cliente_origen
+)
+SELECT total_cuantia, total_transferencias, hora, id_cliente_origen
+FROM tmp
+WHERE total_transferencias > 3 AND total_cuantia > 3000
 
