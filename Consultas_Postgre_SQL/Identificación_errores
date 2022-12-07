@@ -52,12 +52,13 @@ WHERE total_transferencias > 3
 --No se pueden producir varias transferencias que juntas sumen más de 3000€ en una misma hora, para un mismo cliente. 
 
 WITH tmp as(
-SELECT SUM(b.cuantia) as total_cuantia,COUNT(b.t_id) as total_transferencias, d.hora, b.id_cliente_origen
+SELECT SUM(b.cuantia) as total_cuantia, d.hora, b.id_cliente_origen
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
+WHERE d.tipo = 'TRANSFER'
 GROUP BY hora, id_cliente_origen
 )
-SELECT total_cuantia, total_transferencias, hora, id_cliente_origen
+SELECT total_cuantia, hora, id_cliente_origen
 FROM tmp
-WHERE total_transferencias > 3 AND total_cuantia > 3000
+WHERE total_cuantia > 3000
 
