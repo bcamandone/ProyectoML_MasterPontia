@@ -20,25 +20,28 @@ limit 10
 
 --8)¿Cuáles son los 3 clientes con mejor balance a lo largo del mes (aquellos que al restarle al dinero recibido el dinero enviado se quedan con un mejor resultado) y cuál ha sido su balance?
 
-
-
-
-
+SELECT b.id_cliente_origen, 
+round(CAST(SUM(balance_post_origen) - SUM(balance_prev_origen) AS numeric),2) as balance 
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE fecha < date('2022-09-30')
+GROUP BY id_cliente_origen
+ORDER BY balance desc
+limit 3
 
 --9)¿Cuáles son los 3 clientes con peor balance a lo largo de todo el mes y cuál ha sido?
 
-
-
-
-
+SELECT b.id_cliente_origen, 
+round(CAST(SUM(balance_post_origen) - SUM(balance_prev_origen) AS numeric),2) as balance 
+FROM public."Balance" b JOIN public."Detalle_transacciones" d 
+ON (b.t_id = d.t_id)
+WHERE fecha < date('2022-09-30')
+GROUP BY id_cliente_origen
+ORDER BY balance asc
+limit 3
 
 --10)¿Cuántas transacciones fraudulentas se han producido?
 
 SELECT count(t_id) as cantidad_fraudes
 FROM public."Fraude" 
 where es_fraude = 'True'
-
-
-
-
-
