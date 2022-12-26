@@ -39,7 +39,15 @@ FROM tmp
 --no es cliente de Pontia Bank S.L., ¿cuánto dinero en total ha recibido Pontia Bank S.L. (desde destinatarios externos) y cuánto ha emitido
 --(a destinatarios externos)? ¿Cuál es la cuantía media y total de las operaciones realizadas entre dos clientes de Pontia Bank S.L.?
 
-
+WITH tmp AS (
+SELECT t_id, id_cliente_origen, cuantia
+FROM public."Balance"
+WHERE balance_prev_origen = 0 and balance_post_origen = 0
+GROUP BY t_id, id_cliente_origen
+)
+SELECT
+ROUND(SUM(cuantia::numeric),2) as cuantia_total
+FROM tmp 
 
 
 
