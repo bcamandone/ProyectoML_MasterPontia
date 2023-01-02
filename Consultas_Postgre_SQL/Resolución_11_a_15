@@ -19,8 +19,20 @@ order by  cantidad_transacciones desc
 
 --13)¿Cuál es la cuantía total de cada tipo de transacción que realizan los 5 clientes que han enviado más dinero?
 
-
-
+WITH TMP AS (
+SELECT b.id_cliente_origen, SUM(b.cuantia) as cuantia_total, d.tipo 
+FROM public."Balance" b JOIN public."Detalle_transacciones" d
+ON (b."t_id" = d."t_id")
+GROUP BY id_cliente_origen,tipo 
+),
+TOP AS(
+SELECT cuantia_total, tipo,
+DENSE_RANK() OVER (PARTITION BY tipo ORDER BY cuantiatotal desc) as rank
+FROM tmp
+)
+SELECT cuantiatotal, tipo
+FROM TOP 
+where rank <= 5
 
 
 --14)Para cada transacción, calcular el porcentaje de incremento del balance del destinatario.
@@ -48,6 +60,4 @@ GROUP BY t_id, id_cliente_origen
 SELECT
 ROUND(SUM(cuantia::numeric),2) as cuantia_total
 FROM tmp 
-
-
 
