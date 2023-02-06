@@ -7,10 +7,10 @@ GROUP BY t.fecha
 
 --2)Calcular la cuantía total de las transacciones
 
-SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria,  t.fecha
+SELECT round(CAST(SUM(c.cuantia) as numeric), 2) as cuantia_total_diaria
 FROM public."Balance" c JOIN public."Detalle_transacciones" t
 ON (c."t_id" = t."t_id")
-GROUP BY t.fecha
+GROUP BY
 
 --3)¿Qué días del mes se han producido más transacciones y cuántas?
 
