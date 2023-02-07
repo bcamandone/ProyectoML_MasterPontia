@@ -1,5 +1,5 @@
 
-# Master en Data Sciencist - Institución: Pontia.tech - Proyecto Jupiter
+# Master en Data Science - Institución: Pontia.tech - Proyecto Jupiter
 
 El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
 
