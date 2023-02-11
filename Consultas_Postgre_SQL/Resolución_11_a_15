@@ -1,9 +1,29 @@
 --11)Diferenciando entre si las transacciones que han producido una alarma de transacción fraudulenta en los sistemas,
 --¿cuántas han sido realmente fraudulentas y cuántas no?
 
-SELECT count(*) AS trancciones_fraudulentas 
+--Cuántas transacciones ha saltado alarma y han sido fraudulentas
+SELECT count(*) AS Cantidad, mensaje_alarma, es_fraude
 FROM public."Fraude" 
 where mensaje_alarma = 'True'  and es_fraude = 'True'
+GROUP BY mensaje_alarma, es_fraude 
+UNION 
+--cuántas transacciones no ha saltado alarma y han sido fraudulentas
+SELECT count(*) AS Cantidad, mensaje_alarma, es_fraude
+FROM public."Fraude" 
+where mensaje_alarma = 'False'  and es_fraude = 'True'
+GROUP BY mensaje_alarma, es_fraude
+UNION
+--cuántas transacciones ha saltado alarma y no han sido fraudulentas
+SELECT count(*) AS Cantidad, mensaje_alarma, es_fraude
+FROM public."Fraude" 
+where mensaje_alarma = 'True'  and es_fraude = 'False'
+GROUP BY mensaje_alarma, es_fraude
+UNION
+--cuántas transacciones no han saltado alarma y no han sido fraudulentas
+SELECT count(*) AS Cantidad, mensaje_alarma, es_fraude
+FROM public."Fraude" 
+where mensaje_alarma = 'False'  and es_fraude = 'False'
+GROUP BY mensaje_alarma, es_fraude
 
 SELECT count(*) AS trancciones_no_fraudulentas 
 FROM public."Fraude" 
