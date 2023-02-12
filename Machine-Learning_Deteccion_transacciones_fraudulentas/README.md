@@ -1,6 +1,6 @@
 ## Detección de fraude
 
-se quiere desarrollar un sistema capaz de automatizar la tarea de detección de fraude. Para ello hará falta seguir los siguientes pasos:
+Se quiere desarrollar un sistema capaz de automatizar la tarea de detección de fraude. Para ello hará falta seguir los siguientes pasos:
 1. Conectarse Y extraer los datos.
 2. Llevar a cabo un análisis exploratorio de los datos.
 3. Efectuar las tareas de limpieza del dataset necesarias.
