@@ -38,7 +38,6 @@
     cuánto ha emitido (a destinatarios externos)? ¿Cuál es la cuantía media y total de las
     operaciones realizadas entre dos clientes de Pontia Bank S.L.?
     
-Pontia Bank S.L. aceptará y valorará positivamente el planteamiento y resolución de otras preguntas y métricas.
 
 Identificación de errores e incidencias
 
