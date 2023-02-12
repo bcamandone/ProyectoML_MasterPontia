@@ -3,7 +3,7 @@
 
 ![banco](https://user-images.githubusercontent.com/86261762/218296884-52227a13-b6ec-4c03-ba97-8dd36c63589c.png)
 
-El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
+# El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
 
 Problematica: 
 
