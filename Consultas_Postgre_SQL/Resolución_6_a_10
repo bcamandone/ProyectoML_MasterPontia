@@ -25,7 +25,7 @@ SELECT b.id_cliente_destino,
 cuantia as total_recibido
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
-WHERE fecha < date('2022-09-30') AND d.tipo= 'TRANSFER'
+WHERE fecha <= date('2022-09-30') AND d.tipo= 'TRANSFER'
 ),
 dinero_enviado AS(
 SELECT b.id_cliente_origen, 
@@ -56,7 +56,7 @@ SELECT b.id_cliente_origen,
 cuantia as total_enviado 
 FROM public."Balance" b JOIN public."Detalle_transacciones" d 
 ON (b.t_id = d.t_id)
-WHERE fecha < date('2022-09-30') AND d.tipo= 'TRANSFER'
+WHERE fecha <= date('2022-09-30') AND d.tipo= 'TRANSFER'
 )
 SELECT 
 r.id_cliente_destino as cliente,
