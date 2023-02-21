@@ -25,9 +25,6 @@ FROM public."Fraude"
 where mensaje_alarma = 'False'  and es_fraude = 'False'
 GROUP BY mensaje_alarma, es_fraude
 
-SELECT count(*) AS trancciones_no_fraudulentas 
-FROM public."Fraude" 
-where mensaje_alarma = 'True'  and es_fraude = 'False'
 
 --12)¿Cuántas transacciones se producen por cada tipo de operación?
 
