@@ -3,7 +3,7 @@
 
 ![banco](https://user-images.githubusercontent.com/86261762/218296884-52227a13-b6ec-4c03-ba97-8dd36c63589c.png)
 
-# Introduccion:El proyecto Júpiter aborda el estudio de la detección de fraudes en operaciones bancarias mediante algoritmos de Aprendizaje Automático.Este proyecto tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica.
+# Introduccion: El proyecto Júpiter aborda el estudio de la detección de fraudes en operaciones bancarias mediante algoritmos de Aprendizaje Automático.Este proyecto tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica.
 
 La detección de transacciones fraudulentas es un reto debido a dos razones principales: en primer lugar,  los comportamientos “normales” y “fraudulentos” de los usuarios cambian constantemente y, en segundo lugar, los conjuntos de datos de fraude en operaciones bancarias están muy  sesgados (distribución de clases desequilibrada). 
 
