@@ -3,9 +3,12 @@
 
 ![banco](https://user-images.githubusercontent.com/86261762/218296884-52227a13-b6ec-4c03-ba97-8dd36c63589c.png)
 
-# El proyecto Júpiter tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica, mediante un proyecto que consiste en desarrollar un sistema de detección de transacciones fraudulentas.
+# Introduccion:El proyecto Júpiter aborda el estudio de la detección de fraudes en operaciones bancarias mediante algoritmos de Aprendizaje Automático.Este proyecto tiene como objetivo principal terminar de unir los conceptos para el alumno de forma práctica.
 
-Problematica: 
+La detección de transacciones fraudulentas es un reto debido a dos razones principales: en primer lugar,  los comportamientos “normales” y “fraudulentos” de los usuarios cambian constantemente y, en segundo lugar, los conjuntos de datos de fraude en operaciones bancarias están muy  sesgados (distribución de clases desequilibrada). 
+
+
+# Problematica: 
 
 La empresa Pontia Bank S.L. necesita desarrollar un sistema de detección de transacciones fraudulentas. Esta compañía, tramita miles de transacciones diarias de todos sus clientes entre las cuales se quiere diferenciar entre las que son fraudulentas de las que no lo son. Para ello, se han extraído las transacciones realizadas en los últimos 30 días (más de 6 millones) e identificado (manualmente) aquellas que son fraudulentas. Sin embargo, resulta muy costoso e ineficiente necesitar una revisión manual de la transacción para su validación, por lo que se quiere automatizar esta tarea. 
 La empresa carece de un sistema adecuado para almacenar y gestionar sus datos de las transacciones, por lo que no solo necesita ser capaz de identificar el fraude, sino que es necesario llevar a cabo una transformación digital completa alrededor de estos datos: empezando por su almacenamiento, pasando por su procesamiento y finalizando con la generación de resultados y cálculo de KPIs útiles para el negocio. 
