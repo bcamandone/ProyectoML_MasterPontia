@@ -12,9 +12,26 @@ La detección de transacciones fraudulentas es un reto debido a dos razones prin
 
 # Problematica: 
 
-La empresa Pontia Bank S.L. necesita desarrollar un sistema de detección de transacciones fraudulentas. Esta compañía, tramita miles de transacciones diarias de todos sus clientes entre las cuales se quiere diferenciar entre las que son fraudulentas de las que no lo son. Para ello, se han extraído las transacciones realizadas en los últimos 30 días (más de 6 millones) e identificado (manualmente) aquellas que son fraudulentas. Sin embargo, resulta muy costoso e ineficiente necesitar una revisión manual de la transacción para su validación, por lo que se quiere automatizar esta tarea. 
-La empresa carece de un sistema adecuado para almacenar y gestionar sus datos de las transacciones, por lo que no solo necesita ser capaz de identificar el fraude, sino que es necesario llevar a cabo una transformación digital completa alrededor de estos datos: empezando por su almacenamiento, pasando por su procesamiento y finalizando con la generación de resultados y cálculo de KPIs útiles para el negocio. 
+La empresa Pontia Bank S.L. necesita desarrollar un sistema de detección de transacciones fraudulentas. Esta compañía, tramita miles de transacciones diarias de todos sus clientes entre las cuales se quiere diferenciar entre las que son fraudulentas de las que no lo son. Para ello, se han extraído las transacciones realizadas en los últimos 30 días (más de 6 millones) e identificado (manualmente) aquellas que son fraudulentas.
 
+Para desarrollar un sistema capaz de automatizar la tarea de detección de fraude hará falta seguir los siguientes pasos:
+
+1) Conectarse Y extraer los datos.
+2) Llevar a cabo un análisis exploratorio de los datos.
+3) Efectuar las tareas de limpieza del dataset necesarias.
+4) Si se requiere, utilizar técnicas de data augmentation.
+5) Identificar el problema y los objetivos.
+6) Fase de selección de datos.
+7) Selección del algoritmo.
+8) Entrenamiento y parametrización del algoritmo.
+9) Evaluación del modelo.
+10) Utilizar el modelo de detección de fraude a los datos en producción no etiquetados y generar un archivo con las predicciones. Este archivo debe poseer la siguiente información: identificador de la transferencia y resultado de la predicción (si es fraudulenta o no).
+11) Repetir las fases 5-10 con al menos dos algoritmos de los cuales al menos uno debe ser de Deep Learning y otro no.
+
+Pontia Bank S.L. quiere auditar también estos desarrollos por lo que será necesario entregar uno o varios archivos en los que se registren todas las operaciones realizadas y sus salidas (puede ser un Jupyter Notebook, Google Colab u otro tipo de presentación en el que se pueda ver tanto el código como el resultado de su ejecución). Es preferible, que para poder obtener los mismos resultados si se vuelve a ejecutar, se fije una semilla aleatoria en los distintos algoritmos.
+
+
+# Descripción de los datos
 
 El proyecto cuenta con 7 archivos json, a continuación se describen los archivos con su contenido:
 
@@ -31,3 +48,4 @@ El proyecto cuenta con 7 archivos json, a continuación se describen los archivo
 6) tipo.json :  nos informa el tipo de la transaccion: PAYMENT TRANSFER CASH_OUT DEBIT CASH_IN
 
 7) es_fraude.json : archivo que almacena el etiquetado manual (que indica si son fraudulentas) de todas las transacciones, a excepción de los datos en producción no etiquetados que deben predecirse (los t_id de estas operaciones no aparecen en este archivo)
+
