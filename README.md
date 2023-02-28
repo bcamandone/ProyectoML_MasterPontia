@@ -45,7 +45,7 @@ El proyecto cuenta con 7 archivos json, a continuación se describen los archivo
 
 5) tiempo.json : archivo histórico en el que por cada unidad de tiempo se almacena una lista con los t_id que se han producido en dicha unidad de tiempo
 
-6) tipo.json :  nos informa el tipo de la transaccion: PAYMENT TRANSFER CASH_OUT DEBIT CASH_IN
+6) tipo.json :  nos informa el tipo de la transaccion: PAYMENT - TRANSFER - CASH_OUT - DEBIT - CASH_IN
 
 7) es_fraude.json : archivo que almacena el etiquetado manual (que indica si son fraudulentas) de todas las transacciones, a excepción de los datos en producción no etiquetados que deben predecirse (los t_id de estas operaciones no aparecen en este archivo)
 
